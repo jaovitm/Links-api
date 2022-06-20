@@ -3,7 +3,9 @@ const input = document.querySelector("input");
 const form = document.querySelector("form");
 
 async function load() {
-  const res = await fetch("http://localhost:3000").then((data) => data.json());
+  const res = await fetch("https://jaovitm-logindb.herokuapp.com/").then(
+    (data) => data.json()
+  );
 
   res.urls.map((item) => {
     addElement(item);
@@ -38,7 +40,9 @@ function removeElement(name,url, el) {
   if (confirm("Tem certeza que deseja deletar?")){
     el.parentNode.remove();
   }
-  fetch(`http://localhost:3000/?name=${name}&url=${url}&del=1`);
+  fetch(
+    `https://jaovitm-logindb.herokuapp.com/?name=${name}&url=${url}&del=1`
+  );
 }
 
 form.addEventListener("submit", (event) => {
@@ -56,7 +60,7 @@ form.addEventListener("submit", (event) => {
 
   addElement({ name, url });
 
-  fetch(`http://localhost:3000/?name=${name}&url=${url}/`);
+  fetch(`https://jaovitm-logindb.herokuapp.com/?name=${name}&url=${url}/`);
 
   input.value = "";
 });
