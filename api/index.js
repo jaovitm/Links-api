@@ -3,6 +3,8 @@ const data = require("./urls.json");
 const URL = require("url");
 const fs = require("fs");
 const path = require("path");
+let PORT = process.env.PORT || 3007;
+
 
 function writeFile (cb){
     fs.writeFile(
@@ -36,4 +38,4 @@ http
 
     return writeFile((message) => res.end(message))
 })
-  .listen(3000, () => console.log("Api is running"));
+  .listen(PORT, () => console.log("Api is running"));

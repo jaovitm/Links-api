@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+let PORT = process.env.PORT || 3006;
 
 http
   .createServer((req, res) => {
@@ -19,4 +20,4 @@ http
       res.end(content);
     });
   })
-  .listen(5000, () => console.log("Server is running"));
+  .listen(PORT, () => console.log("Server is running"));
